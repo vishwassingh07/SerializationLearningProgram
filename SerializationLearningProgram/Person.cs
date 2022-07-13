@@ -14,5 +14,10 @@ namespace SerializationLearningProgram
         public int personId { get; set; }
         public string name { get; set; }
         public string address { get; set; }
+
+        public override string ToString()
+        {
+            return $"ID : " + personId +" "+ "Name : " + name +" "+ "Address : " + address;
+        }
     }
 }

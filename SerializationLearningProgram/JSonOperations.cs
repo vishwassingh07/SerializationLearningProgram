@@ -32,5 +32,27 @@ namespace SerializationLearningProgram
             File.WriteAllText(jsonPath, result);
 
         }
+        /// <summary>
+        /// Json Deserialization
+        /// </summary>
+        public static void JSonDeserialize()
+        {
+            string jsonPath = @"D:\RFP BATCH 157\SerializationLearningProgram\SerializationLearningProgram\SerializationLearningProgram\FileIO\jsonData.json";
+            //Checking for file exixtance
+            if (FileOperations.DoesFileExist(jsonPath))
+            {
+                //Reading from the file
+                string jsonData = File.ReadAllText(jsonPath);
+                //Deserializer method for converting the json data
+                List<Person> result = JsonConvert.DeserializeObject<List<Person>>(jsonData);
+                if (result.Count != 0)
+                {
+                    foreach (Person person in result)
+                    {
+                        Console.WriteLine(person);
+                    }
+                }
+            }
+        }
     }
 }

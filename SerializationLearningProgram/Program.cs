@@ -7,7 +7,7 @@ namespace SerializationLearningProgram
         {
             Console.WriteLine("Welcome To The Serialization Learning Program\n*********************************************");
             bool end = true;
-            Console.WriteLine("1. Json Serialization\n2. End the program");
+            Console.WriteLine("1. Json Serialization\n2. Json Deserialization\n3. End the program");
             while (end)
             {
                 Console.WriteLine("Choose an option to execute : ");
@@ -19,6 +19,10 @@ namespace SerializationLearningProgram
                         Console.ReadLine();
                         break;
                     case 2:
+                        JSonOperations.JSonDeserialize();
+                        Console.ReadLine();
+                        break;
+                    case 3:
                         end = false;
                         break;
                     default:
