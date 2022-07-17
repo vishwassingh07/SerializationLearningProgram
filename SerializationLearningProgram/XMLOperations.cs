@@ -9,6 +9,7 @@ namespace SerializationLearningProgram
 {
     public class XmlOperations
     {
+        //Xml Serialization 
         public static void XmlSerialize()
         {
             StreamWriter sw = null;
@@ -28,6 +29,27 @@ namespace SerializationLearningProgram
             finally
             {
                 sw.Close();
+            }
+        }
+        // Xml Deserialization
+        public static void XmlDeserialize()
+        {
+            try
+            {
+                string xmlPath = @"D:\RFP BATCH 157\SerializationLearningProgram\SerializationLearningProgram\SerializationLearningProgram\FileIO\XmlData.txt";
+                using (StreamReader sr = new StreamReader(xmlPath))
+                {
+                    if (File.Exists(xmlPath))
+                    {
+                        XmlSerializer xml = new XmlSerializer(typeof(Person));
+                       Person person = (Person)xml.Deserialize(sr);
+                        Console.WriteLine(person);
+                    }
+                }             
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }
