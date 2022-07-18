@@ -8,7 +8,7 @@ namespace SerializationLearningProgram
             Console.WriteLine("Welcome To The Serialization Learning Program\n*********************************************");
             bool end = true;
             Console.WriteLine("1. Json Serialization\n2. Json Deserialization\n3. Xml Serialization\n4. " +
-                "Xml Deserialization\n5. End the program");
+                "Xml Deserialization\n5. Csv Serialization\n6. End the program");
             while (end)
             {
                 Console.WriteLine("Choose an option to execute : ");
@@ -30,6 +30,9 @@ namespace SerializationLearningProgram
                         XmlOperations.XmlDeserialize();
                         break;
                     case 5:
+                        CsvDataOperations.CsvSerialize();
+                        break;
+                    case 6:
                         end = false;
                         break;
                     default:
