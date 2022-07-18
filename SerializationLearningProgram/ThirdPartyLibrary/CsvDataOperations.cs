@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace SerializationLearningProgram
 {
+    // Read and Write Operation On Csv Data
     public class CsvDataOperations
     {
+        // Csv Serialization 
         public static void CsvSerialize()
         {
             StreamWriter sw = null;
@@ -35,6 +37,25 @@ namespace SerializationLearningProgram
             finally
             {
                 sw.Close();
+            }
+        }
+        // Csv Deserialization
+        public static void CsvDeserialization()
+        {
+            try
+            {
+                string csvPath = @"D:\RFP BATCH 157\SerializationLearningProgram\SerializationLearningProgram\SerializationLearningProgram\FileIO\csvData.csv";
+                StreamReader sr = new StreamReader(csvPath);
+                CsvReader csvReader = new CsvReader(sr, CultureInfo.InvariantCulture);
+                List<Person>  res = csvReader.GetRecords<Person>().ToList();
+                foreach(Person person in res)
+                {
+                    Console.WriteLine(person);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }
